@@ -15,7 +15,13 @@
       <button (click)="onClickAdd()">Add</button>
     </div>
     <div class="input-container">
-      <input type="number" placeholder="# of teams" />
+      <input
+        #generateNumberOfTeams
+        type="number"
+        placeholder="# of teams"
+        (input)="onChangeNumberOfTeams(generateNumberOfTeams.value)"
+        [value]="numberOfTeams"
+      />
       <button (click)="onClickGenerate()">Generate</button>
     </div>
     <p *ngIf="errorMessage" class="error-msg">
